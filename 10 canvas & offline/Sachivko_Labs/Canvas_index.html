@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабаратораня по Cnavas</title>
+
+</head>
+<body>
+	<canvas id="CanvasBox" height="512" width="512" style="border:1px solid #000000;"></canvas>
+	<script>
+	var _canvas = null;
+	var _context = null;
+	
+	function initCanvas() {
+		_canvas = document.getElementById('CanvasBox');
+		_context = _canvas.getContext('2d');
+		onmousemove = mouseCoords;
+	}
+
+	function draw(x,y) {
+		_context.lineTo(x,y);
+		_context.stroke();
+	}
+	function mouseCoords(e) {
+			var rect = _canvas.getBoundingClientRect();
+			x = e.clientX - rect.left; 
+			y = e.clientY - rect.top; 
+		draw(x,y);
+	}
+	
+	function main() {
+		initCanvas();
+	}
+	
+	main();
+	</script>
+</body>
+</html>
